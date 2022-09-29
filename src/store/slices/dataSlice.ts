@@ -81,25 +81,25 @@ export const dataSlice = createSlice({
       state.data.push(action.payload)
     },
     edit(state, action) {
-      const serchNote:number = state.data.findIndex(el=>el.id === action.payload.id)
+      const serchNote: number = state.data.findIndex(el => el.id === action.payload.id)
       state.data[serchNote] = action.payload
     },
     archive(state, action) {
-        const archiveNote = state.data.find(el=>el.id === action.payload.id)
-        if (archiveNote !== undefined){
-          archiveNote.isArchived = true
-        }
-        
+      const archiveNote = state.data.find(el => el.id === action.payload.id)
+      if (archiveNote !== undefined) {
+        archiveNote.isArchived = true
+      }
+
     },
     remove(state, action) {
-        state.data = state.data.filter((el) => el.id !== action.payload.id)
+      state.data = state.data.filter((el) => el.id !== action.payload.id)
     },
     unArchive(state, action) {
-      const archivedNote = state.data.find(el=>el.id === action.payload)
-      if(archivedNote !== undefined){
+      const archivedNote = state.data.find(el => el.id === action.payload)
+      if (archivedNote !== undefined) {
         archivedNote.isArchived = false
       }
-  },
+    },
   },
 })
 export const { create, edit, archive, remove, unArchive } = dataSlice.actions
