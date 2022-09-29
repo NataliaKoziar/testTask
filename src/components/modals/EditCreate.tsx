@@ -16,7 +16,7 @@ const EditCreateForm = ({ activeRow, onSubmit }: FormProps) => {
     <form>
       <h2>{title} Note</h2>
       <label>Category:</label>
-      <select 
+      <select
         name="category"
         value={category}
         onChange={(e) => setCategory(e.target.value)}
@@ -28,34 +28,34 @@ const EditCreateForm = ({ activeRow, onSubmit }: FormProps) => {
         <option value="Quote">Quote</option>
       </select>
       <label>Name:</label>
-      <input 
+      <input
         type="text"
         name="title"
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
       <label>Content:</label>
-      <input 
+      <input
         type="text"
         name="content"
         value={content}
         onChange={(e) => setContent(e.target.value)}
       />
       <input
-        type="button" disabled ={!category || !name || !content}
+        type="button" disabled={!category || !name || !content}
         className="btn"
         value={title}
         onClick={() =>
           onSubmit(
             {
-            category: category,
-            name: name,
-            created: activeRow?.created || Date.now(),
-            content: content,
-            updated: activeRow ? new Date().toLocaleDateString() : '',
-            isArchived: false,
-            id: activeRow?.id || Date.now().toString(),
-          })
+              category: category,
+              name: name,
+              created: activeRow?.created || Date.now(),
+              content: content,
+              updated: activeRow ? new Date().toLocaleDateString() : '',
+              isArchived: false,
+              id: activeRow?.id || Date.now().toString(),
+            })
         }
       />
     </form>

@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import{useDispatch} from "react-redux"
-import {edit} from "../../../store/slices/dataSlice"
+import { useDispatch } from "react-redux"
+import { edit } from "../../../store/slices/dataSlice"
 import { Idata } from '../../../store/models'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {type} from "../../../store/typesOfIcons"
+import { type } from "../../../store/typesOfIcons"
 import './Row.scss'
 import EditIcon from './editIcon/EditIcon'
 import ArchiveIcon from './archivIcon/ArchivIcon'
@@ -12,10 +12,10 @@ import Modal from '../../modals/Modal'
 import EditCreateForm from '../../modals/EditCreate'
 interface RowProps {
   data: Idata
-  }
+}
 
-const Row = ({data}: RowProps) => {
- 
+const Row = ({ data }: RowProps) => {
+
   const [isModalOpen, setModalOpen] = useState(false)
   const [activeRow, setActiveRow] = useState(data)
   const dispatch = useDispatch();
@@ -27,7 +27,7 @@ const Row = ({data}: RowProps) => {
   const getUpdateData = (inputData: number) => {
     return new Date(inputData).toLocaleDateString()
   }
-    
+
 
   return (
     <div className="row">
@@ -54,8 +54,8 @@ const Row = ({data}: RowProps) => {
             setActiveRow(data)
           }}
         />
-        <ArchiveIcon id = {activeRow.id}/>
-        <DeleteIcon id = {activeRow.id}/>
+        <ArchiveIcon id={activeRow.id} />
+        <DeleteIcon id={activeRow.id} />
       </div>
       {isModalOpen && (
         <Modal onClose={() => setModalOpen(false)}>
